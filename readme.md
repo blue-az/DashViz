@@ -4,48 +4,47 @@ DashViz
 
 ## Description
 
-Dash app that provides an input selection for dates and then outputs a pairs plot for the chosen time period. Also, there is an option to separate by activity type
-
+Dash app that provides an input selection for dates and then outputs a pairs plot for the chosen time period. Also, there is an option to separate by activity type. The input data source is a heart rate monitor that is stored locally. This approach uses a wrangle function with an embedded SQL query.
 
 ## Getting Started
 
+query = """
+    SELECT _id, date, TYPE, TRACKID, ENDTIME, CAL, AVGHR, MAX_HR from TRACKRECORD
+    """
+
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+import warnings
+import base64
+import io
+from datetime import date
+import sqlite3
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from dash import Dash, Input, Output, dcc, html, callback, dash_table
+import plotly.express as px
+import plotly.graph_objects as go
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* Downloads data from MiiFit dataframe
 
 ### Executing program
 
 * How to run the program
 * Step-by-step bullets
 ```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
+python3 main.py
 ```
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+blueaz
 
 ## Version History
 
 * 0.2
     * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
 
