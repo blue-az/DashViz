@@ -45,8 +45,6 @@ def wrangle(db_path):
 
 # PC path
 file_path = "/mnt/g/My Drive/FitnessData/SensorDownload/Sep14/MiiFit.db"
-# Chromebook mods
-# file_path = "/home/efehn2000/GoogHome/FitnessData/SensorDownload/Sep14/MiiFit.db"
 warnings.simplefilter("ignore", UserWarning)
 
 df = wrangle(file_path)
